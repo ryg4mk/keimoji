@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102d24">
+  <meta name="description" content="馬ではなく馬名そのものが走る、8頭立ての文字競馬。ONE TAKE GAME #007 — 競文字 / Keimoji">
+  <title>競文字 | Keimoji — ONE TAKE GAME #007</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" id="app">
+    <header class="masthead">
+      <div class="series">ONE TAKE GAME <span>#007</span></div>
+      <div class="brand"><h1>競文字</h1><div class="brand-right"><strong>KEIMOJI</strong><span>THE LETTERS RUN</span></div></div>
+    </header>
+
+    <section class="screen entry" id="entry-screen" aria-label="出走表">
+      <div class="entry-top"><div><div class="eyebrow">RACE CARD / 8 RUNNERS</div><h2>本日の出走表</h2></div><span class="race-mark">芝・1周</span></div>
+      <p class="entry-help">名前そのものがコースを走る。7頭の相手は決定済み。あなたの1頭を選んで出走しよう。</p>
+      <div class="entry-list" id="entry-list"></div>
+      <div class="select-panel">
+        <span class="eyebrow">YOUR RUNNER</span>
+        <div class="select-line"><strong id="pick-name" aria-live="polite">—</strong><button class="random-button" id="random-button" type="button">ランダム <span aria-hidden="true">↻</span></button></div>
+        <div class="pick-summary" id="pick-summary"></div>
+        <button class="primary-button" id="start-button" type="button">この馬で出走 <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="entry-footnote">同じ馬名は出走しません。能力は馬名の文字の形から決まります。</div>
+    </section>
+
+    <section class="screen race-screen hidden" id="race-screen" aria-label="競文字のレース">
+      <div class="race-title"><span class="eyebrow">KEIMOJI TURF — 1 LAP</span><span class="live-tag" id="race-phase">GATE IN</span></div>
+      <div class="track-holder"><canvas id="race-canvas" width="840" height="820" role="img" aria-label="8頭の馬名がコースを進行方向に向かって縦一列に走る競文字のレース"></canvas><div class="overlay-text" id="gate-overlay" aria-live="polite">各馬ゲートイン完了</div></div>
+      <div class="commentary" role="status" aria-live="polite"><span class="commentary-label">実況</span><span id="commentary-text">各馬ゲートイン完了。</span></div>
+      <div class="race-controls">
+        <div class="meters"><div class="meter-line"><span>スタミナ</span><div class="meter"><div class="fill stamina-fill" id="stamina-fill"></div></div></div><div class="meter-line"><span>耐久力</span><div class="meter"><div class="fill health-fill" id="health-fill"></div></div></div></div>
+        <button id="whip-button" class="whip-button" type="button" aria-label="鞭で加速する">鞭 <span>！</span><small>連打OK / スタミナに注意</small></button>
+      </div>
+    </section>
+
+    <section class="screen results hidden" id="result-screen" aria-label="レース結果">
+      <div class="result-heading"><span class="eyebrow">OFFICIAL RESULT</span><h2 id="result-headline">確定着順</h2><p id="result-message"></p></div>
+      <div class="result-list" id="result-list"></div>
+      <div class="result-actions"><button class="primary-button" id="again-button" type="button">もう一度 <span aria-hidden="true">↗</span></button><button class="secondary-button" id="reselect-button" type="button">馬を選び直す</button></div>
+    </section>
+    <footer>ONE TAKE GAME #007 <span>·</span> 競文字 <span>·</span> Keimoji</footer>
+  </main>
+  <script src="horses.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
